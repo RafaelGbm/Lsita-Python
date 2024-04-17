@@ -21,23 +21,35 @@ while not (opcao == vinho1 or opcao == vinho2 or opcao == vinho3):
 
 ### Exercício 01
 
-nota = int(input("Digite sua nota: "))
-while(nota<=0 and nota>=10):
-    int(input("Digite uma nota certa "))
-    print("Nota invalida, tente novamente ")
-
-print(f"Nota correta {nota}")
+while True:
+    num = input("Diga um número entre 0 e 10: ")
+    if num.isnumeric():
+        num = int(num)
+        if num>= 0 and num <= 10:
+            break
+        else:
+            print("Deve ser entre 0 e 10")
+    else:
+        print("mano, ce nem digitou um número, pô")
 
 ###Exercício 02
 
 nome = input("Diga o seu nome: ")
 while len(nome)<3:
+    print('Deve ter no minimo 3 caracteres')
     nome = int(input("Qual seu nome: "))
+    
+while True:
+    num = input("Diga um número entre 0 e 150: ")
+    if num.isnumeric():
+        num = int(num)
+        if num <= 150:
+            break
+        else:
+            print("Deve ser entre 0 e 150")
+    else:
+        print("mano, ce nem digitou um número, pô")
 
-idade = int(input("Diga a sua idade: "))
-while idade > 150:
-    print("Idade invalida!!")
-    idade = int(input("digite sua idade novamnete!!!"))
 
 salario = int(input("Diga o quanto voce ganha: "))
 while not salario > 0:
@@ -68,12 +80,13 @@ print(f"Será necessário {ano} anos")
 tentativa = 0
 soma = 0
 while tentativa < 5:
-    number1 = int(input("Digite um novo número: "))
-    soma += number1
-    tentativa = tentativa + 1
+    number1 = input(f"Digite o {tentativa+1}° número: ")
+    while not number1.isnumeric():
+        print("Deve ser um número!")
+        number1 = input(f"Diga o {tentativa+1}°")
+    soma += int(number1)
+    tentativa += 1
 
-print(soma)
-print(soma/tentativa)
 
 ###Exercício 05
 
@@ -132,15 +145,109 @@ while indice<3:
     indice += 1
 print(f"Pares são {par}")
 print(f"impar são {impar}")
-'''
+
+
+
+
+
+i = 1
+j = 1
+while i <= 10:
+    while j <= 10:
+        print(f"{i} * {j} = {i*j} ")
+        j += 1
+    i += 1
+    j = 0
+
+    print("\n")
+
 
 ###Exercício 10
 
+num = 5
+fatorial = num
+fatorial_print = f'{num}! = '
+while num > 1:
+    fatorial_print += f"{num}*"
+    num -= 1
+    fatorial *= num
+fatorial_print += '1'
+
+print(f"{fatorial_print} = {fatorial}")
 
 
 
+###Exercício 11
+
+num = 31
+i = 2
+while i < num ** 0.5:
+    print(f"{num}%{i} = {num%i}")
+    if num % i == 0:
+        print(f"Não é primo!")
+        break
+    i += 1
+if i >= num ** 0.5:
+    print(f"{num} É primo")
 
 
+###Exercício
+final = 2000
+salario = 1000
+taxa = 0.015
+partida = 1995
+while partida < final:
+    salario *= (1+taxa)
+    taxa *= 2
+    partida += 1
+print(salario)
 
 
+###Exercício 14
+primeiro = 0
+segundo = 0
+terceiro = 0
+quarto = 0
 
+while True:
+    num = int(input("Diga um número: "))
+    if num < 0:
+        break
+    if num <= 25:
+        primeiro += 1
+    elif num <= 50:
+        segundo += 1
+    elif num <= 75:
+        terceiro += 1
+    elif num <= 100:
+        quarto += 1
+ '''
+
+###Exercício 15
+joao = 0
+jose = 0
+jorel = 0
+joana = 0
+nulo = 0
+branco = 0
+while True:
+    num = input("Diga seu voto: \n 1 - João\n2 - José\n3 - Jorel\n4 - Joana\n5 - Nulo\n6 - Branco\n0 - Sair")
+    while num != '0' and num != '1' and num != '2' and num != '3' and num != '4' and num != '5' and num != '6':
+        num = input("Diga seu voto:\n 1 - João\n - José\n3 - Jorel\n4 - Joana\n5 - Nulo\n6 - Branco\n0 - Sair")
+
+    if num == '0':
+        break
+    elif num == '1':
+         joao += 1
+    elif num == '2':
+         jose += 1
+    elif num == '3':
+         jorel += 1
+    elif num == '4':
+         joana += 1
+    elif num == '5':
+         nulo += 1
+    elif num == '6':
+         branco += 1
+    i += 1
+print(f"João: {joao}\nJosé: {jose}\nJorel: {jorel}\nJoana: {joana}\nNulo: {nulo}\nBranco: {branco}")
